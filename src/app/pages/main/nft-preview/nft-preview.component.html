@@ -1,0 +1,93 @@
+	<div class="container">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="/">Home</a></li>
+						<li class="breadcrumb__item"><a href="/#/manage-profile">My NFT</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">NFT Detail</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>{{ nft.name }}</h1>
+					</div>
+				</div>
+				<!-- end title -->
+			</div>
+
+			<div class="row">
+				<!-- content -->
+				<div class="col-12 col-xl-8">
+					<div class="asset__item">
+						<a *ngIf="nft.fileType.includes('image')" class="asset__img" href="#"><img src="{{ nft.image }}" alt=""></a>
+						  <video controlsList="nodownload" *ngIf="nft.fileType.includes('video')" style="width: 100%;" class="fix-height"  [src]="nft.image | safeUrl" controls autoplay="true" [muted]="true">
+            </video>	
+					</div>
+				</div>
+				<!-- end content -->
+
+				<!-- sidebar -->
+				<div class="col-12 col-xl-4">
+					<div class="asset__info">
+						<div class="asset__desc">
+							<h2>Descriptions</h2>
+							<div class="nft-desc" [innerHTML]="nft.description | safeHtml"></div>
+						</div>
+
+						<ul class="asset__authors">
+							<li>
+								<span>Creator</span>
+								<div class="asset__author asset__author--verified">
+									<img src="{{ nft?.currentOwner?.profile_pic ? imgBaseUrl + nft.currentOwner.profile_pic : '/assets/img/avatars/avatar9.jpg' }}" alt="">
+									<a [routerLink]="['/artist-profile', nft?.currentOwner?.id]">{{ nft?.currentOwner?.name }}</a>
+								</div>
+							</li>
+						</ul>
+
+            <!-- tabs -->
+            <ul class="nav nav-tabs asset__tabs" role="tablist">
+               <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Details</a>
+               </li>
+            </ul>
+
+            <div class="tab-content">
+               <div class="tab-pane fade show active" id="tab-3" role="tabpanel">
+                  <ul class="asset__authors asset__authors--tab">
+                     <li>
+                        <span>Token ID</span>
+                        <p>{{ nft.tokenId }}</p>
+                     </li>
+                     <li>
+                        <span>Year created</span>
+                        <p>{{ nft.createdAt | date:'Y' }}</p>
+                     </li>
+                     <li>
+                        <span>Document Link</span>
+                        <p> <a href="{{ nft.image }}" target="_blank">Click Here</a></p>
+                     </li>
+										 <li *ngIf="nft.link">
+                        <span>Link</span>
+                        <p> <a href="{{ nft.link }}" target="_blank">Click Here</a></p>
+                     </li>
+                     <li>
+                        <span>Owner Wallet Address</span>
+                        <p>{{ nft.currentOwnerWalletAddress }}</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <!-- end tabs -->
+					
+					</div>
+				</div>
+				<!-- end sidebar -->
+			</div>
+
+		</div>
+
+    

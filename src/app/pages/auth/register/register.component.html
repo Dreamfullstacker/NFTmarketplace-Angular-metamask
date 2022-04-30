@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row row--grid">
+        <!-- registration form -->
+        <div class="col-12">
+            <div class="sign">
+                <div class="sign__content">
+                    <form [formGroup]="form" class="sign__form">
+                        <a [routerLink]="['/']"  class="sign__logo">
+                            <img src="assets/img/logo.svg" alt="">
+                        </a>
+
+                        <!-- <div class="col-12" style="padding: 0px;">
+                            <div class="sign__group sign__group--row">
+                                <ul class="sign__radio sign__radio--single">
+                                    <li>
+                                        <input id="type1" type="radio" formControlName="role" value="artist" name="role">
+                                        <label for="type1">For Artist</label>
+                                    </li>
+                                    <li>
+                                        <input id="type2" type="radio" formControlName="role" value="user"  name="role">
+                                        <label for="type2">For Buyer</label>
+                                    </li>
+                                </ul>
+                                <app-error-field [errorMsg]="getForm.role"></app-error-field>
+                            </div>
+                        </div> -->
+
+                        <div class="sign__group">
+                            <input type="text" formControlName="name" class="sign__input" placeholder="Name">
+                            <app-error-field [errorMsg]="getForm.name"></app-error-field>
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="email" formControlName="email"  class="sign__input" placeholder="Email">
+                            <app-error-field [errorMsg]="getForm.email"></app-error-field>
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="password" formControlName="password"  class="sign__input" placeholder="Password">
+                            <app-error-field [errorMsg]="getForm.password"></app-error-field>
+                        </div>
+
+                        <div class="sign__group sign__group--checkbox">
+                            <input id="remember" formControlName="terms" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">I agree to the <a href="/#/privacy-policy">Privacy Policy</a></label>
+                        </div>
+                        
+                        <button [disabled]="!form.valid" (click)="registerAction()" class="sign__btn" type="button">Sign up</button>
+                        <span class="sign__text">Already have an account? <a [routerLink]="['/auth/login']">Sign In!</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- end registration form -->
+    </div>
+</div>

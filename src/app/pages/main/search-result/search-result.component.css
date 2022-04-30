@@ -1,0 +1,41 @@
+form {
+  width: 100%;
+}
+
+::ng-deep .ngx-pagination .current {
+  background: #6164ff !important;
+}
+
+
+::ng-deep .ngx-pagination a span,
+.ngx-pagination button span {
+  color: #6164ff !important;
+}
+
+::ng-deep .pagination-previous {
+  color: #6164ff;
+}
+
+::ng-deep .pagination-next {
+  color: #6164ff;
+}
+
+.card__cover img {
+  /* max-height: 250px; */
+  /* height: 300px; */
+}
+
+.fix-height {
+  /* height: 150px; */
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-main {
+  padding: 20px;
+  width: 100%;
+}
+
+.card {
+  padding: 0% !important;
+}

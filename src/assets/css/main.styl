@@ -1,0 +1,4775 @@
+/*----------------------------------------
+[Master Stylesheet]
+
+Project:	Unitok HTML Template
+Version:	1.0.1
+Primary use:	Unitok HTML Template
+----------------------------------------*/
+
+/*----------------------------------------
+[Table of contents]
+
+1. Fonts
+2. Common styles
+3. Header
+4. Main
+5. Breadcrumb
+6. Paginator
+7. Filter
+8. Home
+9. Hero
+10. Card
+11. Post
+12. Asset
+13. Sellers
+14. Activity
+15. Partners
+16. Feature
+17. Step
+18. Knowledge
+19. FAQ
+20. Сollection
+21. Author
+22. Profile
+23. Contacts
+24. Article
+25. Share
+26. Comments
+27. Footer
+28. Sign
+29. Page 404
+30. Modal
+31. Select2
+32. Scrollbar-track
+----------------------------------------*/
+$white = #fff
+$black = #000
+$grey = #bdbdbd
+
+$bg = #222227
+$bg2 = #16151a
+
+$mainclr = #6164ff
+
+$red = #eb5757
+$green = #25a56a
+$blue = #2f80ed
+$purple = #8051d4
+$orange = #f7630c
+
+/*==============================
+	Fonts
+==============================*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Inter:wght@400;500&display=swap')
+
+/*==============================
+	Common styles
+==============================*/
+html
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+html
+body
+	height 100%
+body
+	font-family 'Open Sans', sans-serif
+	font-weight 400
+	background-color $bg2
+	-webkit-font-smoothing antialiased
+button
+	padding 0
+	border none
+	background-color transparent
+	transition .5s ease
+	transition-property color, background-color, border-color, box-shadow
+	cursor pointer
+	&:focus
+		outline none
+a
+	transition .5s ease
+	transition-property color, background-color, border-color, box-shadow
+	&:hover
+	&:active
+	&:focus
+		outline none
+		text-decoration none
+input
+textarea
+select
+	padding 0
+	margin 0
+	border-radius 0
+	-webkit-appearance none
+	-moz-appearance none
+	-ms-appearance none
+	appearance none
+	box-shadow none
+	transition .5s ease
+	transition-property color, border-color, box-shadow
+	&:focus
+		outline none
+
+select::-ms-expand
+	display none
+
+input::-webkit-outer-spin-button
+input::-webkit-inner-spin-button
+	-webkit-appearance none
+	margin 0
+
+input[type=number]
+	-moz-appearance textfield
+
+ul
+	margin 0
+	padding 0
+	list-style none
+
+::-moz-selection
+	background $white
+	color $bg
+	text-shadow none
+::selection
+	background $white
+	color $bg
+	text-shadow none
+
+::-webkit-input-placeholder
+	color $grey
+	opacity 1
+::-moz-placeholder
+	color $grey
+	opacity 1
+:-moz-placeholder
+	color $grey
+	opacity 1
+:-ms-input-placeholder
+	color $grey
+	opacity 1
+
+:focus
+	outline -webkit-focus-ring-color auto 0px
+
+body::-webkit-scrollbar
+	width 16px
+
+body::-webkit-scrollbar-track
+	background $bg
+
+body::-webkit-scrollbar-thumb
+	background-color $grey
+	outline 1px solid $bg
+
+.tab-content
+	width 100%
+
+.tab-content > .tab-pane
+	display none
+
+.tab-content > .active
+	display block
+
+.fade
+	transition opacity .4s linear
+
+@media screen and (prefers-reduced-motion: reduce)
+	.fade
+		transition none
+
+.fade:not(.show)
+	opacity 0
+
+.collapse:not(.show)
+	display none
+
+.collapsing
+	position relative
+	height 0
+	overflow hidden
+	transition height .5s ease
+
+@media screen and (prefers-reduced-motion: reduce)
+	.collapsing
+		transition none
+
+:focus-visible
+	outline 0px dotted
+
+.row--grid
+	margin-right -10px
+	margin-left -10px
+	.col-6
+	.col-12
+		padding-left 10px
+		padding-right 10px
+	@media (min-width: 768px)
+		margin-right -15px
+		margin-left -15px
+		.col-6
+		.col-12
+			padding-left 15px
+			padding-right 15px
+
+.row--sidebar
+	margin-right -10px
+	margin-left -10px
+	.col-6
+	.col-12
+		padding-left 10px
+		padding-right 10px
+
+.table-responsive
+	display block
+	width 100%
+	overflow-x auto
+	-webkit-overflow-scrolling touch
+	-ms-overflow-style -ms-autohiding-scrollbar
+
+.owl-carousel .owl-item
+	-webkit-transform none
+
+.container
+	@media (min-width: 1200px)
+		max-width 1170px
+	@media (min-width: 1440px)
+		max-width 1330px
+
+/*==============================
+	Header
+==============================*/
+.header
+	display block
+	position fixed
+	top 0
+	left 0
+	right 0
+	width auto
+	height 70px
+	background-color $bg2
+	border-bottom 1px solid $bg
+	z-index 101
+	&__content
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		height 70px
+		width 100%
+		position relative
+		padding 0 15px
+	&__logo
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		height 40px
+		img
+			width auto
+			height 40px
+			display block
+	&__actions
+		display inline-flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		width auto
+		margin-left auto
+		margin-right 42px
+	&__action
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 100%
+		width 22px
+		position relative
+		margin-left 20px
+		&:first-child
+			margin-left 0
+		&--profile
+			width auto
+	&__action-btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 36px
+		width 100%
+		span
+			display none
+		svg
+			width 22px
+			height auto
+			fill $grey
+			transition fill .5s ease
+		&:hover
+			svg
+				fill $white
+	&__btn
+		position absolute
+		width 22px
+		height 22px
+		display block
+		right 15px
+		top 24px
+		span
+			position absolute
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			right 0
+			width 22px
+			height 2px
+			background-color $grey
+			border-radius 2px
+			transition .5s ease
+			transition-property width, background-color
+			&:first-child
+				top 0
+			&:nth-child(2)
+				top 10px
+				width 16px
+			&:last-child
+				top 20px
+				width 10px
+		&:hover
+			span
+				background-color $mainclr
+		&--active
+			span
+				background-color $mainclr
+				&:nth-child(2)
+					width 22px
+				&:last-child
+					width 22px
+	&__search
+		position absolute
+		left 0
+		top -71px
+		width 100%
+		height 70px
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		background-color $bg2
+		z-index 1
+		padding 0 15px
+		border-bottom 1px solid $bg
+		transition top .5s ease
+		input
+			width calc(100% - 30px)
+			height 40px
+			background-color $bg
+			color $white
+			font-size 14px
+			border-radius 12px
+			border none
+			padding 0 45px 0 20px
+			font-family 'Inter', sans-serif
+			font-weight 400
+			&:focus
+				border-color $white
+		button
+			position absolute
+			right 60px
+			top 15px
+			height 40px
+			width auto
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			svg
+				width 20px
+				height auto
+				fill $grey
+				transition .5s ease
+			&:hover
+				svg
+					fill $mainclr
+			&.close
+				right 15px
+		&--active
+			top 0
+	&__menu
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position fixed
+		top 70px
+		right 0
+		bottom 0
+		background-color $bg2
+		z-index 99
+		width 280px
+		padding 25px 25px 0
+		transform translate3d(281px, 0, 0)
+		transition transform .5s ease
+		border-left 1px solid $bg
+		&--active
+			transform translate3d(0, 0, 0)
+	&__nav
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		position relative
+	&__nav-item
+		margin-bottom 20px
+		position relative
+		&:last-child
+			margin-bottom 0
+	&__nav-link
+		font-size 14px
+		color $grey
+		line-height 22px
+		height 22px
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-weight 400
+		font-family 'Inter', sans-serif
+		svg
+			fill $grey
+			width 14px
+			height auto
+			transition fill .5s ease
+			margin-left 1px
+			margin-top 2px
+		&--menu
+			svg
+				width 20px
+				margin-top 0
+				margin-left 0
+		&--active
+			color $mainclr
+			cursor default
+			font-weight 500
+			&:hover
+				color $mainclr !important
+		&:hover
+		&[aria-expanded="true"]
+			color $white
+			svg
+				fill $mainclr
+	&__nav-menu
+		display block
+		position absolute !important
+		z-index -1
+		pointer-events none
+		opacity 0
+		top 0
+		background-color $bg2
+		border-radius 16px
+		padding 0 20px
+		width 200px
+		transition opacity .5s ease
+		transform translate3d(0px, 22px, 0px)
+		margin-top 10px
+		height auto
+		border 1px solid $bg
+		.header__nav-menu
+			margin-top 5px
+			margin-left 20px
+		li
+			position relative
+			margin-bottom 15px
+			&:first-child
+				padding-top 20px
+			&:last-child
+				margin-bottom 0
+				padding-bottom 20px
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			color $grey
+			font-size 14px
+			font-weight 400
+			transition color .5s ease
+			position relative
+			font-family 'Inter', sans-serif
+			svg
+				fill $grey
+				width 14px
+				height auto
+				transition .5s ease
+				margin-left 1px
+				margin-top 2px
+			&:hover
+			&[aria-expanded="true"]
+				color $white
+				svg
+					fill $mainclr
+		&.show
+			z-index 1000
+			pointer-events auto
+			opacity 1
+	&__profile-btn
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		position relative
+		padding 0 6px 0 6px
+		height 54px
+		border 1px solid $bg
+		border-radius 16px
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display none
+				width 18px
+				height 18px
+				border 2px solid $white
+				bottom 5px
+				left 30px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+		img
+			display none
+			width 40px !important
+			height 40px
+			border-radius 12px
+			margin-right 6px
+		div
+			display flex
+			flex-direction column
+			justify-content center
+			align-items flex-start
+			margin-left 6px
+		p
+			margin-bottom 0
+			line-height 22px
+			font-size 14px
+			color $white
+			font-family 'Inter', sans-serif
+			font-weight 500
+		span
+			font-size 12px
+			color $grey
+			line-height 18px
+		svg
+			fill $grey
+			width 16px
+			height auto
+			transition fill .5s ease
+			margin-left 6px
+			margin-top 2px
+		&:hover
+			border-color $mainclr
+		&:hover
+		&[aria-expanded="true"]
+			svg
+				fill $mainclr
+	&__profile-menu
+		display block
+		position absolute !important
+		z-index -1
+		pointer-events none
+		opacity 0
+		top 0
+		background-color $bg2
+		border-radius 16px
+		padding 20px
+		min-width 180px
+		transition opacity .5s ease
+		transform translate3d(0px, 54px, 0px) !important
+		height auto
+		border 1px solid $bg
+		right 0 !important
+		left auto !important
+		margin-top 2px
+		li
+			margin-bottom 15px
+			width 100%
+			&:last-child
+				margin-bottom 0
+			&:last-child
+				padding-top 15px
+				border-top 1px solid $bg
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			color $grey
+			font-size 14px
+			font-weight 400
+			transition color .5s ease
+			position relative
+			font-family 'Inter', sans-serif
+			svg
+				fill $white
+				width 20px
+				height auto
+				transition fill .5s ease
+				margin-right 10px
+			&:hover
+				color $white
+				svg
+					fill $mainclr
+		&.show
+			z-index 1000
+			pointer-events auto
+			opacity 1
+	@media (min-width: 576px)
+		&__action	
+			&--signin
+				width auto
+				padding-left 22px
+				&:before
+					content ''
+					position absolute
+					display block
+					width 1px
+					height 24px
+					background-color $bg
+					top 50%
+					left 0
+					margin-top -11px
+				&:hover
+					a
+					button
+						span
+							color $white
+						svg
+							fill $mainclr
+		&__action-btn
+			span
+				display block
+				white-space nowrap
+				color $grey
+				font-size 14px
+				margin-right 10px
+				font-family 'Inter', sans-serif
+				font-weight 400
+				transition color .5s ease
+			&--signin
+				background-color $mainclr
+				border-radius 12px
+				padding 0 20px
+				span
+					margin-right 0
+					color $white
+				svg
+					display none
+				&:hover
+					background-color $bg
+					span
+						color $mainclr
+		&__content
+			padding 0 30px
+		&__search
+			padding 0 30px
+			button
+				right 75px
+				&.close
+					right 30px
+		&__btn
+			right 30px
+		&__profile-btn
+			img
+				display block
+			&--verified
+				&:after
+					display block
+	@media (min-width: 768px)
+		&__action
+			margin-left 30px
+			&--signin
+				padding-left 32px
+		&__actions
+			margin-right 52px
+	@media (min-width: 1200px)
+		&__logo
+			width auto
+			margin-right 50px
+		&__btn
+			display none
+		&__content
+			padding 0 50px
+		&__actions
+			margin-right 0
+		&__action
+			&--search
+				display none
+			&--signin
+				padding-left 0
+				&:before
+					display none
+		&__action-btn
+			svg
+				fill $mainclr
+			&--signin
+				height 40px
+				min-width 100px
+		&__search
+			position relative
+			top auto
+			left auto
+			width 280px
+			padding 0
+			border none
+			background-color transparent
+			input
+				padding 0 60px 0 20px
+				width 100%
+			button
+				right 20px
+				&.close
+					display none
+			&--active
+				top auto
+		&__menu
+			flex-direction row
+			align-items center
+			width auto
+			padding 0
+			position relative
+			top auto
+			right auto
+			bottom auto
+			background-color transparent
+			transform translate3d(0, 0, 0)
+			border none
+			transition transform 0s ease
+		&__nav
+			flex-direction row
+			align-items center
+			width auto
+		&__nav-item
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			height 70px
+			margin-bottom 0
+			margin-left 30px
+		&__nav-menu
+			transform translate3d(0px, 46px, 0px)
+			.header__nav-menu
+				transform translate3d(0px, 22px, 0px)
+	@media (min-width: 1440px)
+		&__search
+			width 360px
+
+/*==============================
+	Main
+==============================*/
+.main
+	position relative
+	margin-top 70px
+	padding 0 0 60px
+	&__title
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items flex-end
+		flex-wrap wrap
+		margin-bottom 10px
+		margin-top 60px
+		h1
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items flex-start
+			font-family 'Inter', sans-serif
+			font-weight 400
+			color $white
+			font-size 30px
+			line-height 140%
+			margin-bottom 0
+			position relative
+			b
+				font-weight 500
+			a
+				color $white
+				&:hover
+					color $mainclr
+		h2
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items flex-start
+			font-family 'Inter', sans-serif
+			font-weight 400
+			color $white
+			font-size 26px
+			line-height 150%
+			margin-bottom 0
+			position relative
+			svg
+				width 26px
+				height auto
+				fill $mainclr
+				margin-right 10px
+			b
+				font-weight 500
+			a
+				color $white
+				&:hover
+					color $mainclr
+		h3
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items flex-start
+			font-family 'Inter', sans-serif
+			font-weight 400
+			font-size 24px
+			color $white
+			margin-bottom 0
+			line-height 100%
+			position relative
+		p
+			display block
+			width 100%
+			font-size 16px
+			line-height 26px
+			color $grey
+			margin-top 20px
+			margin-bottom 0
+			b
+				font-weight 600
+			a
+				color $mainclr
+				text-decoration underline
+				&:hover
+					text-decoration none
+		ol
+			padding-left 0
+			list-style none
+			counter-reset li
+			margin-bottom 0
+			ol
+				padding-left 15px
+				margin-top 10px
+				ol
+					margin-top 10px
+					margin-bottom 10px
+					li
+						margin-top 5px
+			h4
+				font-size 16px
+				color $white
+				display inline-block
+				margin-bottom 0
+				margin-top 20px
+				font-weight 500
+				font-family 'Inter', sans-serif
+			li
+				font-size 16px
+				line-height 24px
+				color $grey
+				position relative
+				b
+					font-weight 600
+					color $grey
+				a
+					color $red
+					&:hover
+						color $red
+						text-decoration underline
+				&:last-child
+					margin-bottom 0
+				&:before
+					counter-increment li
+					content counters(li,".") ". "
+		&--page
+			margin-bottom 0
+			margin-top 50px
+		&--border-top
+			padding-top 55px
+			border-top 1px solid $bg
+		&--center
+			justify-content center
+			align-items center
+			h1
+			h2
+				text-align center
+				justify-content center
+	&__link
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		font-size 16px
+		color $grey
+		font-weight 400
+		margin-bottom 5px
+		svg
+			width 22px
+			height auto
+			fill $grey
+			margin-left 5px
+			transition fill .5s ease
+			margin-right -3px
+		&:hover
+			color $white
+			svg
+				fill $mainclr
+	&__carousel-wrap
+		position relative
+	&__carousel
+		.owl-dots
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 100%
+			margin-top 25px
+			position relative
+		.owl-dot
+			margin-right 10px
+			&:last-child
+				margin-right 0
+			span
+				display block
+				height 4px
+				width 10px
+				border-radius 2px
+				background-color $grey
+				transition .5s ease
+			&.active
+				span
+					width 20px
+					background-color $mainclr
+	&__nav
+		display none
+	&__filter
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		margin-top 20px
+		padding 20px 20px 10px
+		background-color $bg2
+		position relative
+		border 1px solid $bg
+		border-radius 16px
+	&__filter-wrap
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		position relative
+		z-index 2
+	&__filter-search
+		position relative
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		margin-bottom 10px
+		input
+			width 100%
+			height 40px
+			background-color $bg
+			color $white
+			font-size 14px
+			border-radius 12px
+			border none
+			padding 0 60px 0 20px
+			font-family 'Inter', sans-serif
+			&:focus
+				border-color $bg
+		button
+			position absolute
+			right 20px
+			top 0
+			height 40px
+			width auto
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			svg
+				width 20px
+				height auto
+				fill $grey
+				transition .5s ease
+			&:hover
+				svg
+					fill $mainclr
+	&__load
+		width 160px
+		height 50px
+		border-radius 12px
+		background-color $mainclr
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin 30px auto 0
+		transition .5s ease
+		transition-property color, background-color, border-color, box-shadow, transform, margin-top, height
+		&:hover
+			color $mainclr
+			background-color $bg
+		&[aria-expanded="true"]
+			margin-top 0
+			transform scale(0)
+			height 1px
+	&__tabs
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		margin-top 10px
+		li
+			margin-top 15px
+			margin-right 15px
+			&:last-child
+				margin-right 0
+		a
+			display inline-flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width auto
+			color $grey
+			font-size 16px
+			background-color $bg
+			border-radius 12px
+			padding 0 15px
+			height 32px
+			&:hover
+				color $white
+			&.active
+				color $white
+				background-color $mainclr
+	&__video-bg
+		margin-top 60px
+		padding-bottom 60px
+	&__video
+		width 160px
+		height 50px
+		border-radius 12px
+		background-color $mainclr
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin-top 30px
+		&:hover
+			color $mainclr
+			background-color $bg
+	&__author
+		display block
+		position relative
+		width 100%
+		height 200px
+		background-color $bg
+		z-index 1
+	@media (min-width: 768px)
+		padding 0 0 70px
+		&__title
+			margin-top 70px
+			margin-bottom 0
+			h1
+				font-size 36px
+			h2
+				font-size 30px
+				svg
+					width 30px
+			p
+				&:last-child
+					margin-bottom 10px
+			&--sidebar
+				margin-bottom 10px
+			&--border-top
+				padding-top 65px
+			&--page
+				margin-top 50px
+		&__carousel
+			.owl-dots
+				margin-top 30px
+		&__filter
+			padding 0 20px
+			flex-direction row
+			align-items center
+			margin-top 30px
+			height 70px
+		&__filter-search
+			margin-bottom 0
+			width 220px
+			margin-right 30px
+			input
+				width 220px
+		&__load
+			margin 40px auto 0
+		&__tabs
+			li
+				margin-top 20px
+				margin-right 20px
+				&:last-child
+					margin-right 0
+		&__video-bg
+			margin-top 70px
+			padding-bottom 70px
+		&__video
+			margin-top 40px
+		&__author
+			height 300px
+	@media (min-width: 992px)
+		&__title
+			&--sidebar
+				margin-top 30px
+		&__filter-search
+			margin-bottom 0
+			width 248px
+			input
+				width 248px
+	@media (min-width: 1200px)
+		&__nav
+			position absolute
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 34px
+			height 34px
+			right 0
+			top -35px
+			z-index 2
+			svg
+				width 30px
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:hover
+				svg
+					fill $mainclr
+			&--prev
+				right 25px
+			&--next
+				right -5px
+			&--hero
+				top auto
+				bottom 25px
+				svg
+					fill $white
+				&.main__nav--prev
+					right 95px
+				&.main__nav--next
+					right 65px
+		&__filter-search
+			margin-bottom 0
+			width 220px
+			input
+				width 220px
+		&__title
+			&--create
+				margin-top 30px
+	@media (min-width: 1440px)
+		&__filter-search
+			margin-bottom 0
+			width 260px
+			input
+				width 260px
+
+/*==============================
+	Breadcrumb
+==============================*/
+.breadcrumb
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items center
+	flex-wrap wrap
+	width 100%
+	margin-top 25px
+	&__item
+		font-size 14px
+		color $grey
+		transition .5s ease
+		position relative
+		margin-right 34px
+		&:before
+			content ''
+			position absolute
+			left 100%
+			top 1px
+			bottom 0
+			width 34px
+			background url('../img/breadcrumb.svg') no-repeat center / 16px auto
+		&:hover
+			color $grey
+		&:last-child
+			margin-right 0
+			&:before
+				display none
+		&--active
+			cursor default
+			margin-right 0
+			&:before
+				display none
+			&:hover
+				color $grey
+	a
+		color $grey
+		&:hover
+			color $mainclr
+
+/*==============================
+	Paginator
+==============================*/
+.paginator
+	display flex
+	flex-direction row
+	justify-content center
+	align-items center
+	margin 30px auto 0
+	width 100%
+	height 50px
+	border-radius 16px
+	background-color $bg2
+	border 1px solid $bg
+	&__pages
+		display none
+	&__list
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		li
+			margin-right 15px
+			&:last-child
+				margin-right 0
+			&.active
+				a
+					color $mainclr
+					cursor default
+					font-weight 500
+		a
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 30px
+			height 30px
+			border-radius 10px
+			background-color $bg
+			font-size 14px
+			color $grey
+			font-weight 400
+			font-family 'Inter', sans-serif
+			svg
+				width 22px
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:hover
+				color $mainclr
+				svg
+					fill $mainclr
+	@media (min-width: 768px)
+		padding 0 20px
+		margin 40px auto 0
+		height 60px
+		justify-content space-between
+		&__pages
+			display block
+			font-size 14px
+			color $grey
+			font-weight 400
+			font-family 'Inter', sans-serif
+
+/*==============================
+	Filter
+==============================*/
+.filter-wrap
+	margin-top 20px
+	height 100%
+	&__btn
+		width 100%
+		height 50px
+		border-radius 12px
+		background-color $bg
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		&:hover
+			color $white
+			background-color $bg
+	@media (min-width: 768px)
+		margin-top 30px
+	@media (min-width: 1200px)
+		margin-top 0
+		&__btn
+			display none
+		&__content
+			display block !important
+			position relative
+			height 100%
+
+.filter
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	margin-top 20px
+	&__title
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		height auto
+		width 100%
+		color $white
+		font-size 16px
+		font-weight 400
+		margin-bottom 25px
+		button
+			font-size 12px
+			font-weight 400
+			color $mainclr
+			&:hover
+				color $red
+	&__group
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		margin-bottom 20px
+		position relative
+		&:last-child
+			margin-bottom 0
+	&__label
+		line-height 100%
+		font-weight 400
+		font-size 14px
+		color $grey
+		margin-bottom 15px
+		font-family 'Inter', sans-serif
+		b
+			font-weight 500
+			color $white
+	&__select-wrap
+		position relative
+		width 100%
+	&__select
+		background url('../img/arrow2.svg') no-repeat center right 20px $bg
+		background-size 18px auto
+		border 1px solid transparent
+		border-radius 12px
+		height 46px
+		position relative
+		color $white
+		font-size 14px
+		width 100%
+		padding 0 20px
+		cursor pointer
+		font-family 'Inter', sans-serif
+		&:focus
+			border-color $mainclr
+	&__input
+		background-color $bg
+		border 1px solid transparent
+		border-radius 12px
+		height 46px
+		position relative
+		color $white
+		font-size 14px
+		width 100%
+		padding 0 20px
+		font-family 'Inter', sans-serif
+		&:focus
+			border-color $mainclr
+	&__checkboxes
+		position relative
+		margin-top 5px
+		&:first-child
+			margin-top 0
+		li
+			position relative
+			margin-bottom 15px
+			&:last-child
+				margin-bottom 0
+		input
+			&:not(:checked)
+			&:checked
+				position absolute
+				left -9999px
+			&:not(:checked) + label
+			&:checked + label
+				font-size 14px
+				font-weight 400
+				position relative
+				cursor pointer
+				padding-left 36px
+				line-height 24px
+				font-family 'Inter', sans-serif
+				margin 0
+				transition color .5s ease
+				a
+					color $mainclr
+					&:hover
+						color $mainclr
+						text-decoration underline
+			&:not(:checked) + label
+				color $grey
+			&:checked + label
+				color $white
+			&:not(:checked) + label:before
+			&:checked + label:before
+				content ''
+				position absolute
+				display block
+				left 0
+				top 0
+				width 24px
+				height 24px
+				background-color $bg
+				border-radius 8px
+			&:not(:checked) + label:after
+			&:checked + label:after
+				content ''
+				position absolute
+				display block
+				left 0
+				top 0
+				width 24px
+				height 24px
+				transition .5s ease
+				background-color $mainclr
+				border-radius 10px
+				border 6px solid $bg
+			&:not(:checked) + label:after
+				opacity 0
+				transform scale(0)
+			&:checked + label:after
+				opacity 1
+				transform scale(1)
+		label
+			&::-moz-selection
+				background transparent
+				color $grey
+			&::selection
+				background transparent
+				color $grey
+	&__btn
+		width 100%
+		height 50px
+		border-radius 12px
+		background-color $mainclr
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		&:hover
+			color $mainclr
+			background-color $bg
+	@media (min-width: 1200px)
+		margin-top 30px
+		padding-left 10px
+		&--sticky
+			position -webkit-sticky
+			position sticky
+			top 100px
+			margin-bottom 120px
+
+/*==============================
+	Home
+==============================*/
+.home
+	background url('../img/home/home.png') no-repeat bottom center / cover
+	border-bottom 1px solid $bg
+	&--hero
+		background transparent
+		border-bottom none
+	&__content
+		display flex
+		flex-direction column
+		justify-content center
+		align-items flex-start
+		min-height 400px
+		width 100%
+		padding 60px 0
+		&--center
+			align-items center
+			.home__title
+				text-align center
+			.home__text
+				text-align center
+			.home__btns
+				justify-content center
+	&__title
+		position relative
+		z-index 2
+		color $white
+		font-weight 400
+		font-size 30px
+		font-family 'Inter', sans-serif
+		margin-bottom 0
+		line-height 140%
+		b
+			font-weight 500
+		span
+			color $mainclr
+	&__text
+		position relative
+		z-index 2
+		color $grey
+		font-size 16px
+		line-height 28px
+		margin-bottom 0
+		margin-top 15px
+	&__btns
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		margin-top 10px
+	&__btn
+		width auto
+		min-width 140px
+		height 50px
+		border-radius 12px
+		background-color $bg
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		padding 0 20px
+		margin-top 20px
+		margin-right 20px
+		svg
+			fill $white
+			width 28px
+			height auto
+			margin-right 7px
+		&:last-child
+			margin-right 0
+		&:hover
+			color $mainclr
+		&--clr
+			background-color $mainclr
+			color $white
+			&:hover
+				background-color $bg
+				color $mainclr
+	@media (min-width: 768px)
+		&__content
+			padding 70px 0
+		&__title
+			font-size 36px
+		&__btn
+			margin-top 30px
+			margin-right 30px
+			min-width 160px
+			padding 0 25px
+			&:last-child
+				margin-right 0
+	@media (min-width: 1200px)
+		&__title
+			font-size 42px
+		&__btn
+			margin-top 40px
+
+/*==============================
+	Hero
+==============================*/
+.hero
+	display block
+	width 100%
+	margin-top 30px
+	position relative
+	.owl-dots
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		margin-top 25px
+		position relative
+	.owl-dot
+		margin-right 10px
+		&:last-child
+			margin-right 0
+		span
+			display block
+			height 4px
+			width 10px
+			border-radius 2px
+			background-color $grey
+			transition .5s ease
+		&.active
+			span
+				width 20px
+				background-color $mainclr
+	.owl-stage-outer
+		border-radius 16px
+	&__slide
+		display flex
+		flex-direction column
+		justify-content center
+		align-items flex-start
+		width 100%
+		min-height 360px
+		border-radius 16px
+		overflow hidden
+		padding 40px 20px
+		position relative
+		&:before
+			content ''
+			position absolute
+			display block
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background linear-gradient(30deg, rgba($black, .7) 0%, rgba($black, 0) 100%)
+			z-index 1
+	&__title
+		position relative
+		z-index 2
+		color $white
+		font-weight 400
+		font-size 30px
+		font-family 'Inter', sans-serif
+		margin-bottom 0
+		line-height 140%
+		b
+			font-weight 500
+		span
+			color $mainclr
+	&__text
+		position relative
+		z-index 2
+		color $grey
+		font-size 16px
+		line-height 28px
+		margin-bottom 0
+		margin-top 15px
+	&__btns
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		margin-top 10px
+	&__btn
+		width auto
+		min-width 140px
+		height 50px
+		border-radius 12px
+		background-color $bg
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		padding 0 20px
+		margin-top 20px
+		margin-right 20px
+		svg
+			fill $white
+			width 28px
+			height auto
+			margin-right 7px
+		&:last-child
+			margin-right 0
+		&:hover
+			color $mainclr
+		&--clr
+			background-color $mainclr
+			color $white
+			&:hover
+				background-color $bg
+				color $mainclr
+	@media (min-width: 576px)
+		&__slide
+			min-height 400px
+	@media (min-width: 768px)
+		.owl-dots
+			margin-top 30px
+		&__slide
+			padding 40px
+			padding-right 10%
+			min-height 460px
+		&__title
+			font-size 36px
+		&__btn
+			margin-top 30px
+			margin-right 30px
+			min-width 160px
+			padding 0 25px
+			&:last-child
+				margin-right 0
+	@media (min-width: 992px)
+		&__slide
+			padding-right 25%
+	@media (min-width: 1200px)
+		.owl-dots
+			justify-content flex-end
+			margin-top -44px
+			margin-bottom 0
+			padding-right 124px
+			z-index 2
+			position absolute
+		.owl-dot
+			span
+				background-color rgba($white, .6)
+			&.active
+				span
+					background-color $white
+		&__title
+			font-size 42px
+		&__btn
+			margin-top 40px
+		&__slide
+			padding 60px
+			padding-right 50%
+
+/*==============================
+	Сard
+==============================*/
+.card
+	margin-top 20px
+	border-radius 16px
+	width 100%
+	position relative
+	overflow hidden
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	padding 20px
+	border 1px solid $bg
+	background-color $bg2
+	&__cover
+		width 100%
+		border-radius 16px
+		overflow hidden
+		position relative
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		margin-bottom 12px
+		img
+			width 100%
+		&--carousel
+			display block
+			img
+				border-radius 16px
+			.owl-dots
+				display flex
+				flex-direction row
+				justify-content flex-start
+				align-items center
+				width 100%
+				left 0
+				bottom 20px
+				position absolute
+				padding 0 20px
+			.owl-dot
+				margin-right 10px
+				&:last-child
+					margin-right 0
+				span
+					display block
+					height 4px
+					width 10px
+					border-radius 2px
+					background-color $white
+					transition background-color .5s ease
+				&.active
+					span
+						background-color $mainclr
+		&--video
+			svg
+				position absolute
+				top 20px
+				right 20px
+				pointer-events none
+				fill $grey
+				width 20px
+				height auto
+				pointer-events none
+	&__title
+		display block
+		width 100%
+		color $white
+		overflow hidden
+		white-space nowrap
+		text-overflow ellipsis
+		word-wrap break-word
+		font-family 'Inter', sans-serif
+		font-weight 500
+		font-size 18px
+		margin-bottom 15px
+		transition color .5s ease
+		a
+			color $white
+			&:hover
+				color $mainclr
+		&:hover
+			color $mainclr
+	&__author
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		position relative
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 18px
+				height 18px
+				border 2px solid $white
+				bottom -2px
+				left 24px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+		img
+			display block
+			overflow hidden
+			width 40px !important
+			height 40px
+			border-radius 10px
+			margin-right 10px
+		a
+			font-family 'Inter', sans-serif
+			font-weight 500
+			color $grey
+			font-size 16px
+			&:hover
+				color $mainclr
+	&__info
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items flex-end
+		width 100%
+		border-top 1px solid $bg
+		padding-top 15px
+		margin-top 15px
+	&__price
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		span
+			&:first-child
+				font-size 14px
+				line-height 100%
+				color $grey
+			&:last-child
+				font-size 18px
+				line-height 100%
+				color $white
+				margin-top 10px
+	&__likes
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		svg
+			width 18px
+			height auto
+			transition fill .5s ease
+			fill $grey
+		span
+			font-size 13px
+			line-height 18px
+			color $grey
+			margin-left 5px
+			transition color .5s ease
+			&:empty
+				margin-left 0
+		&:hover
+			svg
+				fill $red
+		&--active
+			svg
+				fill $red
+			span
+				color $white
+			&:hover
+				svg
+					fill $grey
+				span
+					color $grey
+	&__time
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		height 32px
+		border-radius 16px
+		position absolute
+		bottom 0
+		left 0
+		border 2px solid $mainclr
+		color $white
+		font-size 12px
+		background-color $bg
+		font-weight 400
+		padding 0 12px
+		svg
+			position relative
+			top auto
+			left auto
+			right auto
+			bottom auto
+			width 16px
+			height auto
+			margin-right 6px
+			fill $mainclr
+			margin-left -3px
+		&--clock
+			border-color $orange
+			svg
+				fill $orange
+	@media (min-width: 768px)
+		margin-top 30px
+
+/*==============================
+	Post
+==============================*/
+.post
+	position relative
+	margin-top 20px
+	border-radius 16px
+	width 100%
+	overflow hidden
+	background-color $bg
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	height calc(100% - 20px)
+	&__img
+		display block
+		width 100%
+		position relative
+		background-color $black
+		&:before
+			content ''
+			position absolute
+			display block
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background linear-gradient(45deg, rgba($black, .8) 0%, rgba($black, 0) 100%)
+			opacity .1
+			transition opacity .5s ease
+			z-index 2
+		img
+			width 100%
+			position relative
+			z-index 1
+		&:hover
+			&:before
+				opacity .3
+	&__content
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		padding 20px
+		background-color $bg
+		border-radius 0 0 16px 16px
+		height 100%
+		position relative
+	&__category
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 28px
+		min-width 70px
+		width auto
+		color $white
+		font-size 13px
+		background-color $mainclr
+		border-radius 10px
+		padding 0 15px
+		margin-bottom 20px
+		position absolute
+		bottom 100%
+		left 20px
+		z-index 2
+		&:hover
+			color $white
+			background-color $bg
+	&__title
+		display block
+		font-family 'Inter', sans-serif
+		font-weight 400
+		font-size 24px
+		line-height 140%
+		color $white
+		margin-bottom 20px
+		overflow hidden
+		width 100%
+		a
+			color $white
+			display block
+			&:hover
+				color $mainclr
+	&__meta
+		margin-top auto
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 20px
+	&__date
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-size 13px
+		color $grey
+		svg
+			fill $white
+			width 16px
+			height auto
+			margin-right 5px
+	&__comments
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-size 13px
+		color $grey
+		svg
+			fill $white
+			width 16px
+			height auto
+			margin-right 5px
+	@media (min-width: 768px)
+		margin-top 30px
+		height calc(100% - 30px)
+
+/*==============================
+	Asset
+==============================*/
+.asset
+	&__item
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		position relative
+		padding 20px 20px 70px 20px
+		width 100%
+		border-radius 16px
+		margin-top 20px
+		border 1px solid $bg
+		img
+			width auto
+			max-width 100%
+	&__info
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position relative
+		width 100%
+		margin-top 20px
+	&__desc
+		display block
+		width 100%
+		h2
+			font-family 'Inter', sans-serif
+			font-size 18px
+			font-weight 500
+			color $white
+			margin-bottom 15px
+		p
+			font-size 16px
+			line-height 26px
+			color $grey
+			margin-bottom 15px
+			display block
+			width 100%
+			&:last-child
+				margin-bottom 0
+	&__authors
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		margin-top 20px
+		padding-top 20px
+		border-top 1px solid $bg
+		&--tab
+			padding-top 0
+			border-top none
+		li
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			margin-bottom 15px
+			span
+				font-size 13px
+				color $grey
+				margin-bottom 12px
+				line-height 100%
+			p
+				font-size 14px
+				line-height 100%
+				color $white
+				font-family 'Inter', sans-serif
+				font-weight 400
+				margin-bottom 0
+			&:last-child
+				margin-bottom 0
+	&__author
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		position relative
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 18px
+				height 18px
+				border 2px solid $white
+				bottom -2px
+				left 28px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+		img
+			display block
+			overflow hidden
+			width 44px !important
+			height 44px
+			border-radius 10px
+			margin-right 10px
+		a
+			font-family 'Inter', sans-serif
+			font-weight 500
+			color $grey
+			font-size 16px
+			&:hover
+				color $mainclr
+	&__actions
+		&--scroll
+			height 175px
+			overflow hidden
+			margin-top 20px
+			.asset__action
+				&:first-child
+					margin-top 0
+	&__action
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		position relative
+		margin-top 20px
+		&:last-child
+			margin-bottom 3px
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 18px
+				height 18px
+				border 2px solid $white
+				bottom -2px
+				left 28px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+		img
+			display block
+			overflow hidden
+			width 44px !important
+			height 44px
+			border-radius 10px
+			margin-right 10px
+		p
+			font-size 14px
+			line-height 22px
+			color $grey
+			font-family 'Inter', sans-serif
+			font-weight 400
+			margin-bottom 0
+			a
+				color $white
+				font-weight 500
+				&:hover
+					color $mainclr
+			b
+				font-weight 500
+				color $white
+	&__tabs
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		margin-top 30px
+		border-bottom 1px solid $bg
+		li
+			margin-right 30px
+			&:last-child
+				margin-right 0
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items flex-start
+			height 36px
+			color $grey
+			position relative
+			font-size 14px
+			font-family 'Inter', sans-serif
+			white-space nowrap
+			&:before
+				content ''
+				position absolute
+				bottom 0
+				left 0
+				right 0
+				height 2px
+				display block
+				background-color $mainclr
+				transition .5s ease
+				transform translateY(2px)
+				opacity 0
+				border-radius 2px 2px 0 0
+			&:hover
+				color $white
+			&.active
+				color $white
+				cursor default
+				&:before
+					opacity 1
+					transform translateY(0)
+	&__btns
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		margin-top 20px
+		border-top 1px solid $bg
+	&__btn
+		width calc(50% - 10px)
+		height 50px
+		border-radius 12px
+		background-color $bg
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		padding 0 20px
+		margin-top 20px
+		margin-right 20px
+		svg
+			fill $white
+			width 28px
+			height auto
+			margin-right 7px
+		&:last-child
+			margin-right 0
+		&:hover
+			color $mainclr
+		&--clr
+			background-color $mainclr
+			color $white
+			&:hover
+				background-color $bg
+				color $mainclr
+		&--full
+			width 100%
+	&__likes
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position absolute
+		bottom 20px
+		right 20px
+		height 28px
+		z-index 1
+		svg
+			width 18px
+			height auto
+			transition fill .5s ease
+			fill $grey
+		span
+			font-size 13px
+			line-height 18px
+			color $grey
+			margin-left 5px
+			transition color .5s ease
+			&:empty
+				margin-left 0
+		&:hover
+			svg
+				fill $red
+		&--active
+			svg
+				fill $red
+			span
+				color $white
+			&:hover
+				svg
+					fill $grey
+				span
+					color $grey
+	&__wrap
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-top 20px
+		border-top 1px solid $bg
+		padding-top 20px
+	&__price
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width calc(50% - 10px)
+		padding-left 20px
+		span
+			&:first-child
+				font-size 14px
+				line-height 100%
+				color $grey
+				line-height 20px
+			&:last-child
+				font-size 18px
+				line-height 100%
+				color $white
+				margin-top 10px
+	&__timer
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 50%
+		position relative
+		padding-right 20px
+		border-right 1px solid $bg
+		span
+			display inline-flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			font-size 14px
+			height 20px
+			line-height 100%
+			color $grey
+			svg
+				width 20px
+				height auto
+				margin-right 5px
+				fill $mainclr
+	&__clock
+		font-size 18px
+		line-height 100%
+		color $white
+		margin-top 10px
+	@media (min-width: 576px)
+		&__authors
+			flex-direction row
+			li
+				margin-bottom 0
+				margin-right 60px
+				&:last-child
+					margin-right 0
+			&--tab
+				flex-direction column
+				li
+					margin-right 0
+					margin-bottom 15px
+					&:last-child
+						margin-bottom 0
+	@media (min-width: 768px)
+		&__item
+			margin-top 30px
+			height auto
+			min-height calc(100% - 30px)
+		&__info
+			margin-top 30px
+
+/*==============================
+	Sellers-list
+==============================*/
+.sellers-list
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	flex-wrap wrap
+	li
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		margin-top 20px
+	&__number
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		padding-right 15px
+		color $grey
+		font-size 14px
+	&__author
+		display inline-flex
+		flex-direction column
+		justify-content center
+		align-items flex-start
+		width calc(100% - 40px)
+		position relative
+		height 60px
+		padding-left 75px
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 20px
+				height 20px
+				border 2px solid $white
+				bottom -2px
+				left 42px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+		img
+			position absolute
+			top 0
+			left 0
+			display block
+			overflow hidden
+			width 60px !important
+			height 60px
+			border-radius 16px
+		a
+			font-family 'Inter', sans-serif
+			font-weight 500
+			color $white
+			font-size 16px
+			margin-bottom 5px
+			&:hover
+				color $mainclr
+		span
+			color $grey
+			font-size 14px
+			font-weight 400
+	@media (min-width: 576px)
+		height 640px
+		li
+			width 50%
+	@media (min-width: 768px)
+		height 450px
+		li
+			width 33%
+			margin-top 30px
+	@media (min-width: 1200px)
+		height 300px
+		li
+			width 20%
+			margin-top 40px
+
+/*==============================
+	Activity
+==============================*/
+.activity
+	margin-top 20px
+	border-radius 16px
+	width 100%
+	position relative
+	overflow hidden
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items flex-start
+	padding 20px
+	border 1px solid $bg
+	&__cover
+		width 100px
+		border-radius 16px
+		overflow hidden
+		position relative
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		img
+			width 100%
+	&__content
+		width calc(100% - 120px)
+		margin-left 20px
+	&__title
+		display block
+		width 100%
+		color $white
+		overflow hidden
+		white-space nowrap
+		text-overflow ellipsis
+		word-wrap break-word
+		font-family 'Inter', sans-serif
+		font-weight 500
+		font-size 18px
+		margin-bottom 15px
+		transition color .5s ease
+		a
+			color $white
+			&:hover
+				color $mainclr
+		&:hover
+			color $mainclr
+	&__text
+		font-size 16px
+		line-height 26px
+		color $grey
+		font-family 'Inter', sans-serif
+		font-weight 400
+		margin-bottom 15px
+		a
+			color $white
+			font-weight 500
+			&:hover
+				color $mainclr
+		b
+			font-weight 500
+			color $white
+	&__time
+		font-size 14px
+		color $grey
+	@media (min-width: 576px)
+		&__cover
+			width 120px
+		&__content
+			width calc(100% - 140px)
+	@media (min-width: 768px)
+		margin-top 30px
+	@media (min-width: 1200px)
+		&__cover
+			width 140px
+		&__content
+			width calc(100% - 160px)
+
+/*==============================
+	Partners
+==============================*/
+.partners
+	margin-top 60px
+	&__img
+		img
+			-webkit-filter grayscale(1)
+			filter grayscale(1)
+			opacity .7
+			transition .5s
+		&:hover
+			img
+				-webkit-filter grayscale(0)
+				filter grayscale(0)
+				opacity 1
+	@media (min-width: 768px)
+		margin-top 70px
+
+/*==============================
+	Feature
+==============================*/
+.feature
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items center
+	flex-wrap wrap
+	position relative
+	overflow hidden
+	margin-top 20px
+	padding-bottom 20px
+	border-bottom 1px solid $bg
+	&__icon
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 50px
+		height 50px
+		border-radius 12px
+		background-color rgba($mainclr, .15)
+		svg
+			fill $mainclr
+			width auto
+			height 26px
+		&--purple
+			background-color rgba($purple, .15)
+			svg
+				fill $purple
+		&--red
+			background-color rgba($red, .15)
+			svg
+				fill $red
+		&--blue
+			background-color rgba($blue, .15)
+			svg
+				fill $blue
+		&--green
+			background-color rgba($green, .15)
+			svg
+				fill $green
+	&__title
+		font-family 'Inter', sans-serif
+		font-size 18px
+		line-height 28px
+		font-weight 400
+		color $white
+		margin-bottom 0
+		margin-left 15px
+		width calc(100% - 65px)
+	&__text
+		display block
+		width 100%
+		font-size 16px
+		line-height 26px
+		color $grey
+		margin-bottom 0
+		margin-top 15px
+		a
+			color $mainclr
+			text-decoration underline
+			&:hover
+				color $mainclr
+				text-decoration none
+	&--last
+		border-bottom none
+		padding-bottom 0
+	@media (min-width: 768px)
+		margin-top 30px
+		padding-bottom 0
+		border-bottom none
+		padding-right 20px
+	@media (min-width: 1200px)
+		margin-top 40px
+
+/*==============================
+	Step
+==============================*/
+.step
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items center
+	flex-wrap wrap
+	position relative
+	overflow hidden
+	width 100%
+	margin-top 20px
+	padding 20px
+	border-radius 16px
+	background-color $bg2
+	border 1px solid $bg
+	&__number
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		border-radius 12px
+		width 50px
+		height 50px
+		font-family 'Inter', sans-serif
+		line-height 100%
+		font-weight 500
+		font-size 22px
+		color $mainclr
+		background-color rgba($mainclr, .15)
+	&__title
+		font-family 'Inter', sans-serif
+		font-size 18px
+		font-weight 400
+		color $white
+		margin-bottom 0
+		margin-left 15px
+		width calc(100% - 65px)
+	&__text
+		display block
+		width 100%
+		font-size 16px
+		line-height 26px
+		color $grey
+		margin-bottom 0
+		margin-top 15px
+		a
+			color $mainclr
+			text-decoration underline
+			&:hover
+				color $mainclr
+				text-decoration none
+	@media (min-width: 768px)
+		margin-top 30px
+
+/*==============================
+	Knowledge
+==============================*/
+.knowledge
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	position relative
+	width 100%
+	margin-top 20px
+	padding 20px
+	border-radius 16px
+	background-color $bg2
+	border 1px solid $bg
+	&__title
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-family 'Inter', sans-serif
+		font-size 18px
+		font-weight 400
+		color $white
+		margin-bottom 15px
+		width 100%
+		svg
+			fill $mainclr
+			width 24px
+			height auto
+			margin-right 10px
+	&__list
+		width 100%
+		li
+			font-size 16px
+			font-weight 400
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+			margin-bottom 10px
+			position relative
+			&:last-child
+				margin-bottom 0
+			&:before
+				content ''
+				position absolute
+				display block
+				height 1px
+				bottom 6px
+				left 0
+				right 0
+				border-top 1px dotted rgba($grey, .4)
+				z-index 1
+		span
+			color $grey
+			background-color $bg2
+			position relative
+			z-index 2
+			font-size 14px
+			display block
+			padding-left 4px
+		a
+			color $white
+			background-color $bg2
+			position relative
+			z-index 2
+			display block
+			padding-right 4px
+			&:hover
+				color $mainclr
+	@media (min-width: 768px)
+		margin-top 30px
+
+/*==============================
+	FAQ
+==============================*/
+.faq
+	display block
+	margin-top 50px
+	&__title
+		font-family 'Inter', sans-serif
+		color $white
+		font-weight 400
+		font-size 24px
+		margin-bottom 15px
+	&__text
+		font-size 16px
+		line-height 26px
+		font-weight 400
+		margin-bottom 20px
+		width 100%
+		color $grey
+		padding-right 20px
+		&:last-child
+			margin-bottom 0
+	@media (min-width: 768px)
+		margin-top 60px
+	@media (min-width: 1200px)
+		padding 0 20px
+
+/*==============================
+	Сollection
+==============================*/
+.collection
+	margin-top 20px
+	border-radius 16px
+	width 100%
+	position relative
+	overflow hidden
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	&__cover
+		width 100%
+		height 110px
+		background-color $bg
+	&__meta
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items center
+		width 100%
+		padding 0 20px 20px
+		background-color $bg2
+		border-radius 0 0 16px 16px
+		border 1px solid $bg
+	&__avatar
+		display block
+		width 60px
+		height 60px
+		border-radius 16px
+		margin-top -30px
+		margin-bottom 10px
+		position relative
+		img
+			width 100%
+			border-radius 16px
+			border 1px solid $bg2
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 20px
+				height 20px
+				border 2px solid $white
+				bottom -2px
+				right -2px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+	&__name
+		display block
+		width 100%
+		text-align center
+		font-size 16px
+		color $white
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin-bottom 5px
+		a
+			color $white
+			&:hover
+				color $mainclr
+	&__number
+		display block
+		width 100%
+		text-align center
+		font-size 12px
+		color $grey
+		font-weight 400
+	@media (min-width: 768px)
+		margin-top 30px
+
+/*==============================
+	Author
+==============================*/
+.author
+	margin-top 20px
+	border-radius 16px
+	width 100%
+	position relative
+	overflow hidden
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	&--page
+		overflow visible
+		margin-top 0
+		z-index 2
+		.author__avatar
+			width 160px
+			max-width 160px
+			height 160px
+			margin-top -80px
+			margin-bottom 15px
+			img
+				border 2px solid $bg2
+			&--verified
+				&:after
+					width 24px
+					height 24px
+					background-size 18px auto
+	&__cover
+		width 100%
+		height 120px
+		background-color $bg
+		border-top 1px solid $bg
+		border-left 1px solid $bg
+		border-right 1px solid $bg
+		border-radius 16px 16px 0 0
+		&--bg
+			border none
+	&__meta
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		padding 0 20px 20px
+		background-color $bg2
+		border-radius 0 0 16px 16px
+		border-left 1px solid $bg
+		border-right 1px solid $bg
+		border-bottom 1px solid $bg
+		height auto
+	&__avatar
+		display block
+		width 60px
+		height 60px
+		border-radius 16px
+		margin-top -30px
+		margin-bottom 12px
+		position relative
+		img
+			width 100%
+			border-radius 16px
+			border 1px solid $bg2
+		&--verified
+			&:after
+				content ''
+				position absolute
+				display block
+				width 20px
+				height 20px
+				border 2px solid $white
+				bottom -2px
+				right -2px
+				border-radius 50%
+				background url('../img/verified.svg') no-repeat center $blue
+				background-size 14px auto
+				z-index 1
+				pointer-events none
+	&__name
+		display block
+		width 100%
+		font-size 18px
+		color $white
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin-bottom 6px
+		a
+			color $white
+			&:hover
+				color $mainclr
+	&__nickname
+		display block
+		width 100%
+		font-size 16px
+		color $mainclr
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin-bottom 10px
+		a
+			color $mainclr
+			&:hover
+				color $white
+	&__text
+		display block
+		width 100%
+		font-size 14px
+		line-height 24px
+		color $grey
+		font-weight 400
+		margin-bottom 0
+		min-height 72px
+	&__wrap
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items flex-end
+		width 100%
+		border-top 1px solid $bg
+		padding-top 15px
+		margin-top 15px
+	&__followers
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		p
+			font-size 20px
+			line-height 100%
+			color $white
+			margin-bottom 0
+			font-family 'Inter', sans-serif
+		span
+			font-size 14px
+			color $grey
+			line-height 100%
+			margin-top 8px
+	&__follow
+		width 110px
+		height 42px
+		border-radius 12px
+		background-color $bg
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 13px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		&:hover
+			color $white
+			background-color $mainclr
+		&--true
+			background-color $mainclr
+			color $white
+			&:hover
+				background-color $bg
+				color $mainclr
+	&__social
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		a
+			margin-top 20px
+			margin-right 20px
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 20px
+			height 20px
+			position relative
+			svg
+				width 20px
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:last-child
+				margin-right 0
+			&:hover
+				svg
+					fill $mainclr
+	&__code
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		margin-top 15px
+		height 32px
+		background-color $bg
+		border-radius 10px
+		position relative
+		input
+			width 100%
+			padding 0 40px 0 15px
+			height 30px
+			border none
+			background-color transparent
+			color $grey
+			font-size 14px
+			font-family 'Inter', sans-serif
+			font-weight 400
+			white-space nowrap
+			text-overflow ellipsis
+			word-wrap break-word
+			cursor default
+			position relative
+			z-index 1
+			transition 0s
+		::-moz-selection
+			background transparent
+			color $grey
+		::selection
+			background transparent
+			color $grey
+		button
+			position absolute
+			z-index 2
+			cursor pointer
+			width 40px
+			top 0
+			right 0
+			height 32px
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			transition 0s
+			span
+				position absolute
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				width auto
+				background-color $bg
+				border-radius 8px
+				font-size 12px
+				line-height 22px
+				padding 0 8px
+				color $grey
+				bottom 100%
+				margin-bottom 5px
+				transform scale(0)
+				pointer-events none
+				opacity 0
+				transition .4s ease
+				transition-property opacity, transform
+			svg
+				fill $mainclr
+				width 18px
+				height auto
+				opacity .75
+				transition opacity .5s ease
+			&.active
+				span
+					transform scale(1)
+					opacity 1
+				svg
+					opacity 1
+			&:hover
+				svg
+					opacity 1
+	&__link
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		margin-top 15px
+		font-size 14px
+		line-height 20px
+		color $grey
+		font-family 'Inter', sans-serif
+		font-weight 400
+		svg
+			width 20px
+			height auto
+			fill $mainclr
+			margin-right 5px
+		&:hover
+			color $mainclr
+	@media (min-width: 576px)
+		&__text
+			min-height 96px
+		&--page
+			.author__text
+				padding-right 40%
+	@media (min-width: 768px)
+		margin-top 30px
+		&--page
+			margin-top 0
+			.author__text
+				padding-right 50%
+		&__text
+			min-height 72px
+	@media (min-width: 1200px)
+		&--page
+			padding-right 10px
+			.author__text
+				padding-right 0
+
+/*==============================
+	Profile
+==============================*/
+.profile
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	background-color $bg2
+	padding 20px 0 0 20px
+	border-radius 16px
+	position relative
+	margin-top 20px
+	border 1px solid $bg
+	&__tabs
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		overflow hidden
+		width 100%
+		li
+			margin-right 20px
+			&:last-child
+				margin-right 0
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items flex-start
+			height 40px
+			color $grey
+			position relative
+			font-size 14px
+			font-family 'Inter', sans-serif
+			white-space nowrap
+			&:hover
+				color $white
+			&:before
+				content ''
+				position absolute
+				bottom 0
+				left 0
+				right 0
+				height 2px
+				display block
+				background-color $mainclr
+				transition .5s ease
+				transform translateY(2px)
+				opacity 0
+				border-radius 2px 2px 0 0
+			&.active
+				color $white
+				cursor default
+				&:before
+					opacity 1
+					transform translateY(0)
+	@media (min-width: 576px)
+		&__tabs
+			li
+				margin-right 25px
+				&:last-child
+					margin-right 0
+	@media (min-width: 768px)
+		margin-top 30px
+		padding 0 20px
+		flex-direction row
+		justify-content space-between
+		align-items center
+		&__tabs
+			border-bottom none
+			margin-bottom 0
+			width auto
+			margin-right auto
+			li
+				margin-right 30px
+				&:last-child
+					margin-right 0
+			a
+				align-items center
+				height 70px
+
+/*==============================
+	Contacts
+==============================*/
+.contacts
+	&__list
+		margin-top 20px
+		li
+			margin-bottom 15px
+			&:last-child
+				margin-bottom 0
+		a
+			font-size 16px
+			color $white
+			font-family 'Inter', sans-serif
+			font-weight 400
+			&:hover
+				color $mainclr
+	&__social
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		a
+			margin-top 20px
+			margin-right 20px
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 22px
+			height 22px
+			position relative
+			svg
+				width 100%
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:last-child
+				margin-right 0
+			&:hover
+				svg
+					fill $mainclr
+	@media (min-width: 768px)
+		&__social
+			margin-top 10px
+
+/*==============================
+	Article
+==============================*/
+.article
+	display block
+	position relative
+	width 100%
+	margin-top 25px
+	&__category
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 28px
+		min-width 70px
+		width auto
+		color $white
+		font-size 13px
+		background-color $mainclr
+		border-radius 10px
+		padding 0 15px
+		&:hover
+			color $white
+			background-color $bg
+	&__date
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-size 13px
+		color $grey
+		height 28px
+		svg
+			fill $white
+			width 16px
+			height auto
+			margin-right 5px
+	&__content
+		position relative
+		img
+			display block
+			width 100%
+			height auto
+			margin-bottom 25px
+			border-radius 16px
+		iframe
+			display block
+			width 100%
+			height 240px
+			margin-bottom 20px
+			border-radius 16px
+			border none
+		h1
+		h2
+		h3
+		h4
+		h5
+		h6
+			font-family 'Inter', sans-serif
+			font-weight 400
+			color $white
+			margin-bottom 15px
+			line-height 140%
+			&:last-child
+				margin-bottom 0
+		h1
+			font-size 30px
+		h2
+			font-size 28px
+		h3
+			font-size 24px
+		h4
+			font-size 22px
+		h5
+			font-size 18px
+		h6
+			font-size 16px
+		p
+			display block
+			font-size 16px
+			line-height 26px
+			font-weight 400
+			color $grey
+			margin-bottom 20px
+			b
+				font-weight 600
+			a
+				color $mainclr
+				text-decoration underline
+				&:hover
+				&:focus
+					color $mainclr
+					text-decoration none
+			&:last-child
+				margin-bottom 0
+		blockquote
+			display block
+			position relative
+			font-family 'Inter', sans-serif
+			padding 0 0 0 20px
+			font-size 16px
+			line-height 28px
+			color $white
+			font-weight 400
+			margin-bottom 20px
+			&:before
+				content ''
+				position absolute
+				display block
+				top 2px
+				bottom 2px
+				left 0
+				width 3px
+				background-color $mainclr
+				border-radius 3px
+			&:last-child
+				margin-bottom 0
+		ul
+			margin-bottom 20px
+			display block
+			li
+				font-size 16px
+				line-height 28px
+				font-weight 400
+				color $grey
+				padding-left 20px
+				position relative
+				&:before
+					content ''
+					position absolute
+					display block
+					width 4px
+					height 4px
+					border-radius 50%
+					background-color $mainclr
+					left 0
+					top 50%
+					margin-top -2px
+			&:last-child
+				margin-bottom 0
+	&__meta
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		flex-wrap wrap
+		width 100%
+		margin-bottom 20px
+	@media (min-width: 576px)
+		&__content
+			iframe
+				height 280px
+	@media (min-width: 768px)
+		margin-top 25px
+		&__content
+			h1
+				font-size 36px
+			h2
+				font-size 32px
+			h3
+				font-size 28px
+			h4
+				font-size 24px
+			h5
+				font-size 20px
+			h6
+				font-size 18px
+			iframe
+				height 400px
+			img
+				margin-bottom 30px
+		&__meta
+			margin-bottom 25px
+	@media (min-width: 1200px)
+		&__content
+			iframe
+				height 460px
+
+/*==============================
+	Share
+==============================*/
+.share
+	margin-top 10px
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items flex-start
+	flex-wrap wrap
+	width 100%
+	&--asset
+		position absolute
+		bottom 20px
+		left 20px
+		margin-top 0
+		z-index 1
+		width auto
+		display inline-flex
+		.share__link
+			min-width 50px
+			justify-content center
+			margin-top 0
+			svg
+				margin-right 0
+		span
+			display none
+	&__link
+		margin-top 20px
+		margin-right 20px
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		padding 0 15px
+		height 28px
+		border-radius 10px
+		color $white
+		font-size 14px
+		background-color $mainclr
+		font-family 'Inter', sans-serif
+		svg
+			fill $white
+			margin-right 10px
+			margin-top 1px
+			transition fill .5s ease
+		&:last-child
+			margin-right 0
+		&--fb
+			background-color #3B5998
+		&--tw
+			background-color #55ACEE
+		&--vk
+			background-color #4C6C91
+		&--link
+			background-color $bg
+		&:hover
+			background-color $mainclr
+			color $white
+	@media (min-width: 576px)
+		&--asset
+			span
+				display block
+			.share__link
+				justify-content flex-start
+				svg
+					margin-right 10px
+
+/*==============================
+	Comments
+==============================*/
+.comments
+	margin-top 50px
+	padding-top 50px
+	border-top 1px solid $bg
+	&__title
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		margin-bottom 30px
+		h4
+			color $white
+			font-weight 400
+			font-size 24px
+			line-height 100%
+			margin-bottom 0
+			position relative
+			font-family 'Inter', sans-serif
+		span
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width auto
+			min-width 20px
+			height 20px
+			padding 0 5px
+			border-radius 6px
+			background-color $mainclr
+			font-size 12px
+			color $white
+			font-weight 400
+			margin-left 10px
+	&__autor
+		display block
+		position relative
+		padding-left 55px
+		margin-bottom 20px
+	&__avatar
+		position absolute
+		top 0
+		left 0
+		width 40px
+		border-radius 10px
+	&__name
+		display block
+		font-size 16px
+		color $white
+		line-height 20px
+		font-weight 400
+		font-family 'Inter', sans-serif
+	&__time
+		display block
+		font-size 12px
+		color $grey
+		line-height 20px
+		font-weight 400
+	&__text
+		display block
+		margin-bottom 0
+		color $grey
+		font-size 16px
+		line-height 26px
+		padding 20px 0
+		position relative
+		border-top 1px solid $bg
+		border-bottom 1px solid $bg
+		b
+			font-weight 600
+		a
+			color $mainclr
+			&:hover
+				color $mainclr
+				text-decoration underline
+		span
+			display block
+			margin-bottom 20px
+			padding 20px
+			position relative
+			min-height 80px
+			border-radius 12px
+			color $grey
+			background-color $bg
+	&__item
+		margin-bottom 20px
+		display block
+		background-color $bg2
+		border 1px solid $bg
+		padding 20px
+		border-radius 16px
+		&--answer
+		&--quote
+			margin-left 20px
+	&__actions
+		display flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		padding 20px 0 0
+		position relative
+		button
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			margin-right 20px
+			height 20px
+			span
+				font-size 12px
+				color $grey
+				text-transform uppercase
+				transition color .5s ease
+				display none
+			svg
+				width 16px
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:hover
+				span
+					color $white
+				svg
+					fill $mainclr
+			&:last-child
+				margin-right 0
+				svg
+					width 18px
+	&__rate
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position absolute
+		left 0
+		top 20px
+		button
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			color $grey
+			font-size 14px
+			margin-right 24px
+			position relative
+			height 20px
+			svg
+				width 16px
+				height auto
+				opacity .6
+				transition .5s ease
+				margin-top 1px
+			&:last-child
+				margin-right 0
+				svg
+					margin-left 8px
+					fill $red
+					width 16px
+			&:first-child
+				svg
+					margin-right 8px
+					fill $green
+					width 16px
+				&:before
+					content ''
+					position absolute
+					display block
+					left 100%
+					margin-left 12px
+					width 1px
+					height 16px
+					background-color $bg
+					top 50%
+					transform translateY(-50%)
+			&:hover
+				color $white
+				svg
+					opacity 1
+	&__form
+		border-radius 16px
+		padding 20px
+		border 1px solid $bg
+		background-color $bg2
+		margin-top 30px
+		.row
+			margin-left -10px
+			margin-right -10px
+		.col-12
+			padding-left 10px
+			padding-right 10px
+		.sign__btn
+			margin 0
+	@media (min-width: 576px)
+		&__actions
+			button
+				span
+					display block
+					margin-left 6px
+		&__form
+			.sign__btn
+				width 180px
+	@media (min-width: 768px)
+		margin-top 60px
+		padding-top 60px
+		&__item
+			&--answer
+			&--quote
+				margin-left 30px
+
+/*==============================
+	Footer
+==============================*/
+.footer
+	background-color $bg
+	padding 30px 0 20px
+	position relative
+	overflow hidden
+	&__logo
+		margin-top 60px
+		img
+			width auto
+			height 40px
+			display block
+	&__tagline
+		margin-top 15px
+		display block
+		font-size 14px
+		line-height 24px
+		color $grey
+		margin-bottom 0
+	&__links
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		margin-top 5px
+		a
+			display inline-flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			margin-top 10px
+			color $grey
+			font-size 16px
+			svg
+				width 20px
+				height auto
+				fill $mainclr
+				margin-right 10px
+			&:hover
+				color $mainclr
+	&__social
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+		width 100%
+		a
+			margin-top 20px
+			margin-right 20px
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 22px
+			height 22px
+			position relative
+			svg
+				width 100%
+				height auto
+				fill $grey
+				transition fill .5s ease
+			&:last-child
+				margin-right 0
+			&:hover
+				svg
+					fill $mainclr
+	&__content
+		margin-top 60px
+		border-top 1px solid rgba($white, .1)
+	&__copyright
+		display block
+		font-size 13px
+		color $grey
+		margin-top 20px
+		font-family 'Inter', sans-serif
+		font-weight 400
+		a
+			color $grey
+			&:hover
+				color $mainclr
+	&__title
+		display block
+		margin-top 30px
+		font-size 16px
+		color $white
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin-bottom 15px
+	&__nav
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		a
+			font-size 14px
+			line-height 24px
+			margin-bottom 12px
+			color $grey
+			font-family 'Inter', sans-serif
+			font-weight 400
+			&:last-child
+				margin-bottom 0
+			&:hover
+				color $white
+	&__lang
+		position relative
+		margin-top 20px
+	&__lang-btn
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		background-color rgba($white, .1)
+		padding 0 16px 0 8px
+		height 36px
+		border-radius 18px
+		img
+			width 20px
+			height auto
+			margin-right 8px
+			border-radius 50%
+		span
+			color $grey
+			font-size 14px
+			line-height 20px
+			font-weight 400
+			transition color .5s ease
+		&:hover
+			span
+				color $white
+	&__lang-dropdown
+		display block
+		position absolute !important
+		z-index -1
+		pointer-events none
+		opacity 0
+		top 0
+		background-color $bg2
+		border-radius 16px
+		padding 16px
+		min-width 100px
+		transition opacity .5s ease
+		height auto
+		border 1px solid $bg
+		li
+			width 100%
+			margin-bottom 15px
+			&:last-child
+				margin-bottom 0
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			img
+				width 20px
+				height auto
+				margin-right 8px
+				border-radius 50%
+			span
+				color $grey
+				font-size 14px
+				line-height 20px
+				font-weight 400
+				transition color .5s ease
+			&:hover
+				span
+					color $white
+		&.show
+			z-index 1000
+			pointer-events auto
+			opacity 1
+	@media (min-width: 576px)
+		padding 30px 0 20px
+	@media (min-width: 768px)
+		padding 20px 0 25px
+		&__content
+			margin-top 70px
+			padding-top 25px
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+		&__logo
+			margin-top 50px
+		&__title
+			margin-top 50px
+		&__social
+			width auto
+			order 2
+			a
+				margin-top 0
+		&__copyright
+			margin-top 0
+			order 1
+	@media (min-width: 1200px)
+		&__social
+			display inline-flex
+			width auto
+
+/*==============================
+	Sign
+==============================*/
+.sign
+	display block
+	position relative
+	&__content
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		height auto
+		padding 25px 0 0
+	&__form
+		background-color $bg2
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		border-radius 16px
+		padding 30px 20px
+		position relative
+		width 100%
+		max-width 420px
+		border 1px solid $bg
+		&--contacts
+		&--profile
+		&--create
+			margin-top 20px
+			max-width 100%
+			padding 20px 20px 5px
+			align-items flex-start
+			.sign__btn
+				margin 0 0 15px
+			.row
+				margin-left -10px
+				margin-right -10px
+			.col-12
+				padding-left 10px
+				padding-right 10px
+		&--profile
+			.sign__btn
+				margin 5px 0 15px
+	&__logo
+		display block
+		margin-bottom 30px
+		a
+			max-width 100%
+			width auto
+		img
+			width auto
+			height 50px
+	&__title
+		font-size 16px
+		font-weight 500
+		font-family 'Inter', sans-serif
+		color $white
+		margin-bottom 20px
+	&__label
+		font-weight 400
+		font-size 14px
+		color $grey
+		margin-bottom 5px
+		padding-left 20px
+		b
+			font-weight 600
+			color $white
+	&__input
+		background-color $bg
+		border 1px solid transparent
+		border-radius 12px
+		height 46px
+		position relative
+		color $white
+		font-size 16px
+		width 100%
+		padding 0 20px
+		font-family 'Inter', sans-serif
+		&:focus
+			border-color $mainclr
+	&__select
+		background url('../img/arrow2.svg') no-repeat center right 20px $bg
+		background-size 18px auto
+		border 1px solid transparent
+		border-radius 12px
+		height 46px
+		position relative
+		color $white
+		font-size 16px
+		width 100%
+		padding 0 20px
+		cursor pointer
+		font-family 'Inter', sans-serif
+		&:focus
+			border-color $mainclr
+	&__textarea
+		background-color $bg
+		border 1px solid transparent
+		border-radius 12px
+		height 144px
+		position relative
+		color $white
+		font-size 16px
+		width 100%
+		padding 15px 20px
+		resize none
+		font-family 'Inter', sans-serif
+		&:focus
+			border-color $mainclr
+	&__group
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-end
+		flex-wrap wrap
+		position relative
+		margin-bottom 20px
+		width 100%
+		&--row
+			.sign__label
+				padding-left 0
+		&--checkbox
+			width 100%
+			text-align left
+			input
+				&:not(:checked)
+				&:checked
+					position absolute
+					left -9999px
+				&:not(:checked) + label
+				&:checked + label
+					font-size 14px
+					color $grey
+					font-weight normal
+					position relative
+					cursor pointer
+					padding-left 35px
+					line-height 22px
+					margin 0
+					a
+						color $mainclr
+						&:hover
+							color $mainclr
+							text-decoration underline
+				&:not(:checked) + label:before
+				&:checked + label:before
+					content ''
+					position absolute
+					left 0
+					top 0
+					width 22px
+					height 22px
+					background-color $bg
+					border 1px solid transparent
+					border-radius 6px
+				&:not(:checked) + label:after
+				&:checked + label:after
+					content ''
+					position absolute
+					left 0
+					top 0
+					width 22px
+					height 22px
+					text-align center
+					transition .5s ease
+					background url('../img/checkmark.svg') no-repeat center / 20px auto
+					border-radius 6px
+				&:not(:checked) + label:after
+					opacity 0
+					transform scale(0)
+				&:checked + label:after
+					opacity 1
+					transform scale(1)
+			label
+				&::-moz-selection
+					background transparent
+					color $grey
+				&::selection
+					background transparent
+					color $grey
+	&__btn
+		width 100%
+		height 50px
+		border-radius 12px
+		background-color $mainclr
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin 15px auto
+		&:hover
+			color $mainclr
+			background-color $bg
+	&__text
+		margin-top 15px
+		font-size 14px
+		line-height 24px
+		color $white
+		width 100%
+		text-align center
+		&:first-child
+			margin-top 0
+		a
+			position relative
+			color $mainclr
+			&:hover
+				color $mainclr
+				text-decoration underline
+		&--small
+			font-size 13px
+			line-height 21px
+			text-align left
+			color $grey
+	&__delimiter
+		font-size 14px
+		color $grey
+		line-height 100%
+		width 100%
+		display block
+		text-align center
+	&__social
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-bottom 15px
+		margin-top 15px
+		a
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 46px
+			width calc(33% - 10px)
+			border-radius 12px
+			color $white
+			svg
+				height auto
+				fill $white
+				transition .5s ease
+			&.fb
+				background-color #3b5999
+				svg
+					width 10px
+			&.gl
+				background-color #df4a32
+				svg
+					width 18px
+			&.tw
+				background-color #1da1f2
+				svg
+					width 20px
+			&:hover
+				background-color $grey
+				&.fb
+					svg
+						fill #3b5999
+				&.gl
+					svg
+						fill #df4a32
+				&.tw
+					svg
+						fill #1da1f2
+	&__value
+		font-size 24px
+		color $white
+		display block
+		font-weight 500
+		margin-left 10px
+		font-family 'Inter', sans-serif
+	&__radio
+		position relative
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		margin-top 5px
+		&--single
+			padding-top 20px
+			margin-top 0
+			border-top 1px solid $bg
+		li
+			position relative
+			overflow hidden
+			margin-bottom 10px
+			&:last-child
+				margin-bottom 0
+		input
+			&:not(:checked)
+			&:checked
+				position absolute
+				left -9999px
+		label
+			display block
+			margin 0
+			position relative
+			font-weight 400
+			cursor pointer
+			font-size 16px
+			color $grey
+			line-height 24px
+			padding-left 32px
+			transition .5s ease
+			&:before
+				content ''
+				display block
+				position absolute
+				width 20px
+				height 20px
+				border 6px solid $bg
+				background-color transparent
+				border-radius 50%
+				left 0
+				top 2px
+				transition .5s ease
+			&:hover
+				color $white
+		input:checked + label
+			color $white
+			&:before
+				border-color $mainclr
+	&__file
+		position relative
+		width 100%
+		height 46px
+		margin-bottom 20px
+		overflow hidden
+		border-radius 12px
+		display block
+		input
+			position absolute
+			left -9999px
+			opacity 0
+			z-index 1
+		label
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			position relative
+			z-index 2
+			height 46px
+			color $grey
+			padding 0 60px 0 20px
+			background-color $bg
+			margin 0
+			width 100%
+			font-size 16px
+			cursor pointer
+			transition .5s ease
+			font-family 'Inter', sans-serif
+			font-weight 400
+			&:hover
+				color $white
+	@media (min-width: 576px)
+		&__form
+			padding 40px
+			&--contacts
+			&--profile
+			&--create
+				padding 20px 20px 5px
+		&__logo
+			margin-bottom 40px
+	@media (min-width: 768px)
+		&__form
+			&--contacts
+			&--profile
+			&--create
+				margin-top 30px
+				.sign__btn
+					margin 10px 0 15px
+	@media (min-width: 992px)
+		&__form
+			&--profile
+				.sign__btn
+					width 160px
+
+/*==============================
+	Page 404
+==============================*/
+.page-404
+	display block
+	position relative
+	&__wrap
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		height auto
+		padding 25px 0 0
+	&__content
+		background-color $bg2
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		border-radius 12px
+		padding 20px
+		position relative
+		width 100%
+		max-width 420px
+		border 1px solid $bg
+	&__title
+		position relative
+		color $white
+		line-height 100%
+		font-size 100px
+		margin-bottom 10px
+		font-weight 500
+		font-family 'Inter', sans-serif
+	&__text
+		text-align center
+		display block
+		width 100%
+		color $grey
+		font-size 16px
+		line-height 24px
+		margin-bottom 30px
+	&__btn
+		width 100%
+		height 50px
+		border-radius 12px
+		background-color $mainclr
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		color $white
+		font-size 14px
+		position relative
+		z-index 2
+		text-transform uppercase
+		font-family 'Inter', sans-serif
+		font-weight 500
+		margin 0 auto
+		&:hover
+			color $white
+			background-color $bg
+	@media (min-width: 576px)
+		&__content
+			padding 40px
+
+/*==============================
+	Modal
+==============================*/
+.modal
+	position relative
+	display block
+	background-color $bg2
+	margin 40px auto
+	width 100%
+	max-width 420px
+	padding 20px
+	border-radius 16px
+	overflow hidden
+	&--form
+		padding 20px 20px 5px
+	&--asset
+		max-width 1300px
+		padding 35px 20px 20px
+	.mfp-close
+		display none
+	&__close
+		position absolute
+		top 15px
+		right 15px
+		z-index 1
+		svg
+			fill $grey
+			opacity .6
+			transition .5s ease
+			height auto
+			width 24px
+		&:hover
+			svg
+				opacity 1
+				fill $mainclr
+	@media (min-width: 768px)
+		padding 40px
+		&--asset
+			padding 10px 40px 40px
+		&--form
+			padding 40px 40px 25px
+			.modal__close
+				top 37px
+				right 35px
+			.sign__btn
+				margin-top 30px
+
+.mfp-bg
+	background rgba($bg, .75)
+
+.mfp-container
+	padding 0 15px !important
+
+.my-mfp-zoom-in
+	.zoom-anim-dialog
+		opacity 0
+		transition all 0.4s ease-in-out
+		transform scale(0.8)
+	&.mfp-ready
+		.zoom-anim-dialog
+			opacity 1
+			transform scale(1)
+		&.mfp-bg
+			opacity 1
+	&.mfp-removing
+		.zoom-anim-dialog
+			transform scale(0.8)
+			opacity 0
+		&.mfp-bg
+			opacity 0
+	&.mfp-bg
+		opacity 0
+		transition opacity 0.4s ease-out
+
+.mfp-iframe-scaler iframe
+	border-radius 12px
+	box-shadow none
+	background-color $bg2
+
+.mfp-iframe-holder
+	.mfp-close
+		color transparent
+		transition opacity .4s
+		&:before
+			content ''
+			position absolute
+			top 0
+			right 0
+			width 30px
+			height 44px
+			background url('../img/close.svg') no-repeat center
+			background-size 30px auto
+	.mfp-content
+		max-width 910px
+
+.mfp-figure::after
+	box-shadow none
+	background-color $bg
+
+.mfp-fade
+	&.mfp-bg
+		opacity 0
+		transition all .4s ease-in-out
+		&.mfp-ready
+			opacity 1
+			.mfp-content
+				opacity 1
+		&.mfp-removing
+			opacity 0
+			.mfp-content
+				opacity 0
+	&.mfp-wrap
+		.mfp-content
+			opacity 0
+			transition all .4s ease-in-out
+		&.mfp-ready
+			.mfp-content
+				opacity 1
+		&.mfp-removing
+			.mfp-content
+				opacity 0
+
+/*==============================
+	Select2
+==============================*/
+.select2-container
+	width auto !important
+	margin-right 30px
+	.select2-selection--single
+		height 40px
+		background-color transparent
+		border-radius 0
+		border none
+		.select2-selection__rendered
+			line-height 40px
+			color $white
+			padding 0 18px 0 0
+			font-size 14px
+			font-family 'Inter', sans-serif
+			font-weight 400
+			transition .5s ease
+		&[aria-expanded="true"]
+			background-color transparent
+		&:hover
+			.select2-selection__rendered
+				color $mainclr
+
+.select2-container--default
+	.select2-selection--single
+		.select2-selection__arrow
+			height 20px
+			width 18px
+			top 10px
+			right 0
+			background url('../img/arrow.svg') no-repeat center right
+			background-size 16px auto
+			margin-top 1px
+			b
+				display none
+	.select2-results__option--highlighted.select2-results__option--selectable
+		background-color $mainclr
+		color $white
+		white-space nowrap
+	.select2-results__option--selected
+		color $white
+		background-color $mainclr
+		cursor default
+	.select2-results__option[aria-selected="true"]
+		background-color transparent
+		color $mainclr
+		cursor default
+	.select2-results__option--highlighted[aria-selected]
+		background-color transparent
+		color $mainclr
+
+.select2-results__option
+	padding 0 0
+	font-size 14px
+	font-family 'Inter', sans-serif
+	font-weight 400
+	color $white
+	height 36px
+	line-height 36px
+	transition .5s ease
+
+.select2-dropdown
+	border-left none
+	border-right none
+	border-bottom none
+	border-top none
+	border-radius 16px !important
+	min-width 180px
+	padding 6px 0 6px 15px
+	background-color $bg
+	z-index 98
+
+.select2-container--open
+	.select2-dropdown--below
+		border-bottom-left-radius 16px
+		border-bottom-right-radius 16px
+	.select2-dropdown--above
+		border-top-left-radius 16px
+		border-top-right-radius 16px
+
+/*==============================
+	Scrollbar-track
+==============================*/
+.scrollbar-track-y
+	background $bg !important
+	top 0px !important
+	bottom 0px !important
+	height auto !important
+	width 4px !important
+	border-radius 4px !important
+	right 0px !important
+	overflow hidden
+
+.scrollbar-thumb-y
+	background $mainclr !important
+	width 4px !important
+	border-radius 4px !important
+
+.scrollbar-track-x
+	background $bg !important
+	left 0px !important
+	right 0px !important
+	height 4px !important
+	width auto !important
+	border-radius 4px !important
+	bottom 0px !important
+	overflow hidden
+
+.scrollbar-thumb-x
+	background $mainclr !important
+	height 4px !important
+	border-radius 4px !important

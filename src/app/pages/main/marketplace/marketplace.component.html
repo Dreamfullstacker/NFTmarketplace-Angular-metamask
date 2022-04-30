@@ -1,0 +1,122 @@
+<div class="container">
+    <div class="row row--grid">
+        <!-- breadcrumb -->
+        <div class="col-12">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a [routerLink]="['/']">Home</a></li>
+                <li class="breadcrumb__item breadcrumb__item--active">Explore</li>
+            </ul>
+        </div>
+        <!-- end breadcrumb -->
+
+        <!-- title -->
+        <div class="col-12">
+            <div class="main__title main__title--page">
+                <h1>Explore exclusive digital assets</h1>
+            </div>
+        </div>
+        <!-- end title -->
+    </div>
+
+    <div class="row">
+        <!-- sidebar -->
+        <div class="col-12 col-xl-3 order-xl-2">
+            <div class="filter-wrap">
+                <button class="filter-wrap__btn" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">Open filter</button>
+
+                <div class="collapse filter-wrap__content" id="collapseFilter">
+                    <!-- filter -->
+                    <div class="filter">
+                        <h4 class="filter__title">Filters 
+                            <!-- <button type="button">Clear all</button> -->
+                        </h4>
+                        
+                        <form [formGroup]="filterForm">
+                            <div class="filter__group">
+                                <label for="sort" class="filter__label">Sort by:</label>
+                                <div class="filter__select-wrap">
+                                    <select formControlName="sort" name="sort" id="sort" class="filter__select">
+                                        <option value="low">Low to High</option>
+                                        <option value="high">High to Low</option>
+                                        <option value="new">Newest</option>
+                                        <option value="old">Oldest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="filter__group">
+                                <label class="filter__label">Artist:</label>
+                                <ul class="filter__checkboxes">
+                                    <li *ngFor="let item of collectionList | keyvalue">
+                                        <input  type="checkbox" id="{{ item.key }}" (change)="onChangeArtist($event, item.key)">
+                                        <label for="{{ item.key }}">{{ item.value }}</label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                             <div class="filter__group">
+                                <label class="filter__label">Category:</label>
+                                <ul class="filter__checkboxes">
+                                    <li *ngFor="let item of categoryList">
+                                        <input  type="checkbox" id="{{ item }}" (change)="onChangeCategory($event, item)">
+                                        <label for="{{ item }}">{{ item.toString() }}</label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="filter__group">
+                                <button (click)="applyFilter()" class="filter__btn" type="button">APPLY FILTER</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end filter -->
+                </div>
+            </div>
+        </div>
+        <!-- end sidebar -->
+
+        <!-- content -->
+        <div class="col-12 col-xl-9 order-xl-1">
+            <div class="row row--grid">
+                <div *ngFor="let item of filteredNfts | paginate: { itemsPerPage: 9, currentPage: p }" class="col-12 col-sm-6 col-lg-4">
+                    <!-- card -->
+                    <div class="card">
+                        <a [routerLink]="['/marketplace', item.id]" class="card__cover">
+                            
+                            <img *ngIf="item.fileType.includes('image')" src="{{ item.image }}" class="fix-height" alt="">
+
+                            <video *ngIf="item.fileType.includes('video')" style="width: 100%;" class="fix-height"  [src]="item.image | safeUrl" controls autoplay="true" [muted]="true"></video>
+                        </a>
+                        <div class="card-main">
+                            <h3 class="card__title"><a [routerLink]="['/marketplace', item.id]">{{ item.name && item.name !== '' ? item.name : '' }}</a></h3>
+                            <!-- <h3 class="card__title"><a [routerLink]="['/marketplace', item.id]">NFT Token Id: {{ item.tokenId }}</a></h3> -->
+                            <div class="card__author">
+                                <img src="{{ item.currentOwner.profile_pic ? baseImageUrl + item.currentOwner.profile_pic : '/assets/img/avatars/avatar.jpg' }}" alt="">
+                                <a  [routerLink]="['/artist-profile', item.currentOwner.id]">{{ item.currentOwner.name }}</a>
+                            </div>
+                            <div class="card__info">
+                                <div class="card__price">
+                                    <span>Reserve price</span>
+                                    <span *ngIf="item.type !== 'DEFAULT'">{{ item.price.toFixed(5)  }} ETH</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+
+            <!-- paginator -->
+            <div class="row row--grid">
+                <div class="col-12">
+                    <div class="paginator">
+                        <span class="paginator__pages">1 to 10 from {{ filteredNfts.length }}</span>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+            <!-- end paginator -->
+        </div>
+        <!-- end content -->
+    </div>	
+</div>

@@ -1,0 +1,27 @@
+.card__cover img {
+  max-height: 300px;
+  object-fit: cover;
+}
+.card__author a{
+  color: #ffffff !important;
+}
+.main__nav--prev,.main__nav--next {
+  display: none;
+}
+/* .fix-height {
+  height: 150px;
+  object-fit: cover;
+} */
+.fix-height {
+  /* height: 150px; */
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-main {
+  padding: 20px;
+  width: 100%;
+}
+.card {
+  padding: 0% !important;
+}

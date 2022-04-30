@@ -1,0 +1,7 @@
+export const environment = {
+  production: true,
+  API_BASE_URL: 'http://15.207.100.113:3000/v1/',
+  IMG_BASE_URL: 'http://15.207.100.113:3000/',
+  CONTRACT_ADDRESS: '0xaf49F92B39F22547BeaD17dDcfde18F1C662F3dD',
+  OWNER_ADDRESS: '0x4bCa8e532F351f7Eb21554406fA30b57FE6D08D0',
+};

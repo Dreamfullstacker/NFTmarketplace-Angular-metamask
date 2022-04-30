@@ -1,0 +1,117 @@
+<!-- header -->
+<header class="header" [ngClass]="{'header_top_position': walletAddres == '' &&  userName !== ''}">
+	<div class="header__content_metamask">
+			<a *ngIf="userName && userName !== '' &&  walletAddres === ''" class="open-modal header__action-btn header__action-btn--signin" (click)="connectWallet()">
+                      <span>Connect to Wallet</span>
+            </a>
+	</div>
+	<div class="header__content">
+		<div class="header__logo">
+			<a [routerLink]="['/']" >
+					<img src="assets/img/logo.svg" alt="ViGallery">
+			</a>
+		</div>
+
+		<form  class="header__search search">
+			<input type="text" (input)="setSearchValue($event.target.value)"  placeholder="Search items, collections, and creators">
+			<ul class="results" id="results">
+				<ng-container *ngIf="searchResults.length > 0">
+					<li (click)="redirect(item.id)" *ngFor="let item of searchResults"><a (click)="redirect(item.id)" [routerLink]="['/marketplace', item.id]">{{ item.name }}<br /><span>{{ item.description.substring(0, 50) }}</span></a></li>
+				</ng-container>
+				<ng-container *ngIf="searchResults.length === 0">
+					<li><a>No Results Found</a></li>
+				</ng-container>
+		 </ul>
+			<button type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
+			<button type="button"  class="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg></button>
+		</form>
+
+		<div class="header__menu">
+			<ul class="header__nav">
+				<li class="header__nav-item nav-action">
+					<a [routerLink]="['/marketplace']"  class="header__nav-link">Marketplace</a>
+				</li>
+					<li class="header__nav-item nav-action">
+					<a [routerLink]="['/about-us']"  class="header__nav-link">About Us</a>
+				</li>
+<!-- 					<li class="header__nav-item nav-action">
+					<a [routerLink]="['/blogs']"  class="header__nav-link">Blogs</a>
+				</li> -->
+				<li class="header__nav-item nav-action">
+					<a [routerLink]="['/contact-us']"  class="header__nav-link">Contact Us</a>
+				</li>
+				<li  *ngIf="userRole === 'artist' || userRole === 'user'" class="header__nav-item nav-action" >
+					<a [routerLink]="['/create-nft']"  class="header__nav-link">Create NFT</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="header__actions">
+			<a *ngIf="userName && userName !== '' &&  walletAddres === ''" class="open-modal header__action-btn header__action-btn--signin" (click)="connectWallet()">
+                      <span>Connect to Wallet</span>
+            </a>
+			<a *ngIf="userName && userName !== '' && walletAddres != ''" class="header__action-btn header__action-btn--signin">
+                      <span>Connected</span>
+            </a>
+			<div class="header__action header__action--search">
+				<button class="header__action-btn" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
+			</div>
+
+			<div *ngIf="userName && userName !== ''" class="header__action header__action--profile">
+				<a class="header__profile-btn header__profile-btn--verified" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<!-- <ngx-avatar name="{{ userName }}"></ngx-avatar> -->
+					 <img src="{{ userPic }}" alt="">
+					<div>
+					<p>{{ userName }}</p>
+					</div>
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg> -->
+				</a>
+
+				<ul class="dropdown-menu header__profile-menu" aria-labelledby="dropdownMenuProfile">
+				
+<!-- 					<li><a [routerLink]=""> <span>{{ walletAddres }}</span></a></li> -->
+					<li><a [routerLink]="['/manage-profile']"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.71,12.71a6,6,0,1,0-7.42,0,10,10,0,0,0-6.22,8.18,1,1,0,0,0,2,.22,8,8,0,0,1,15.9,0,1,1,0,0,0,1,.89h.11a1,1,0,0,0,.88-1.1A10,10,0,0,0,15.71,12.71ZM12,12a4,4,0,1,1,4-4A4,4,0,0,1,12,12Z"/></svg> <span>Manage Profile</span></a></li>
+					<li><a [routerLink]="" (click)="logoutAction()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/></svg> <span>Sign out</span></a></li>
+				</ul>
+			</div>
+
+			<div *ngIf="!userName && userName === ''" class="header__action header__action--signin">
+				<a class="header__action-btn header__action-btn--signin" [routerLink]="['/auth/login']">
+					<span>Sign in</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,12a1,1,0,0,0-1-1H11.41l2.3-2.29a1,1,0,1,0-1.42-1.42l-4,4a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l4,4a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L11.41,13H19A1,1,0,0,0,20,12ZM17,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V16a1,1,0,0,0-2,0v3a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V5A3,3,0,0,0,17,2Z"/></svg>
+				</a>
+			</div>
+		</div>
+
+		<button class="header__btn" type="button">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+</header>
+<!-- end header -->
+
+      <!-- nft buy confirm modal -->
+
+      <div class="modal fade"  id="connect_to_wallet" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+              	<h4 class="text-center main__title--center main__title">Connect Your Walllet</h4>
+
+              	<p class="main__title--center">Connect with one of available wallet providers or create a new wallet. <a href="#what-wallet" class="open-modal">What is wallet?</a></p>
+                  <div class="w_btn">
+				    <a href="javascript:void(0);" class="asset__btn asset__btn--full asset__btn--clr" (click)="connectToWallet()">
+				      <span class="w_btn_icon"><img src="/assets/img/metamask.png" width="25px"></span>
+				      Metamask Wallet
+				    </a>
+				  </div>
+				  <p class="mt-20 main__title--center">We do not own private keys and cannot access your funds without your confirmation</p>
+              </div>
+            </div>
+        </div>
+      </div>

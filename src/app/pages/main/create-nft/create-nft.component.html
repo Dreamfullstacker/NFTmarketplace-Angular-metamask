@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row row--grid">
+    <!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="/">Home</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">Create collectible item</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12 col-xl-12">
+					<div class="main__title main__title--page text-center">
+						<h1 class="text-center">Create collectible item</h1>
+					</div>
+				</div>
+				<!-- end title -->
+    <div class="col-12 col-xl-8 mx-auto">
+     
+
+      <!-- create form -->
+      <form action="#" [formGroup]="createForm" class="sign__form sign__form--create">
+        <div class="row">
+          <div class="col-12">
+            <h4 class="sign__title">Upload file</h4>
+          </div>
+
+          <div class="col-12">
+            <div class="sign__file">
+              <label id="file1" for="sign__file-upload">e. g. Image, Audio, Video</label>
+              <input data-name="#file1" id="sign__file-upload" formControlName="image" class="sign__file-upload" type="file" accept=".png,.jpg,.jpeg,.gif,.mp4,.mov,.mpeg">
+              <app-error-field [errorMsg]="getCreateForm.image"></app-error-field>
+            </div>
+          </div>
+         
+
+          <div class="col-12">
+            <h4 class="sign__title">Item details</h4>
+          </div>
+
+          <div class="col-12">
+            <div class="sign__group">
+              <label class="sign__label" for="itemname">Item name</label>
+              <input id="itemname" type="text"  formControlName="name" class="sign__input" placeholder="e. g. 'Crypto Heart'">
+              <app-error-field [errorMsg]="getCreateForm.name"></app-error-field>
+            </div>
+          </div>
+
+           <div class="col-12">
+            <div class="sign__group">
+              <label class="sign__label" for="itemname">Category</label>
+              <select class="sign__input" formControlName="category">
+                <option selected disabled>Select Category</option>
+                <option value="Art">Art</option>
+                <option value="Sports">Sports</option>
+                <option value="TradingCards">Trading Cards</option>
+                <option value="VirtualWorld">Virtual World</option>
+                <option value="PhotoGraphy">PhotoGraphy</option>
+              </select>
+              <app-error-field [errorMsg]="getCreateForm.category"></app-error-field>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="sign__group">
+              <label class="sign__label" for="itemname">Item Link</label>
+              <input id="link" type="text"  formControlName="link" class="sign__input" placeholder="Link">
+              <app-error-field [errorMsg]="getCreateForm.link"></app-error-field>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="sign__group">
+              <label class="sign__label" for="description">Description</label>
+              <textarea id="description"  formControlName="description" class="sign__textarea" placeholder="e. g. 'After purchasing you will able to recived...'"></textarea>
+              <app-error-field [errorMsg]="getCreateForm.description"></app-error-field>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="sign__group">
+              <label class="sign__label" for="itemname">Sale Price</label>
+              <input id="itemname" type="number"  formControlName="price" class="sign__input" placeholder="e. g. 0.08 ETH">
+              <app-error-field [errorMsg]="getCreateForm.price"></app-error-field>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-3">
+            <button  type="button" [disabled]="!createForm.valid" (click)="upload()" class="sign__btn">Create item</button>
+          </div>
+        </div>
+      </form>
+      <!-- end create form -->
+    </div>
+  </div>
+</div>
